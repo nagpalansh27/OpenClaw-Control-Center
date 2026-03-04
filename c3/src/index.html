@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C3 — Control Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <meta name="theme-color" content="#07070d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="C3">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="stylesheet" href="./styles/reset.css" />
+  <link rel="stylesheet" href="./styles/theme.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
+</head>
+
+<body>
+  <!-- Boot Screen -->
+  <div id="boot-screen">
+    <div class="boot-content">
+      <div class="boot-logo">☠️</div>
+      <div class="boot-title">C3</div>
+      <div class="boot-subtitle">CONTROL CENTRE</div>
+      <div class="boot-progress">
+        <div class="boot-progress-bar"></div>
+      </div>
+      <div class="boot-log" id="boot-log"></div>
+    </div>
+    <div class="scanline-overlay"></div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="app hidden">
+    <div class="titlebar">
+      <div class="titlebar-drag"></div>
+      <div class="titlebar-title">
+        <span class="titlebar-icon">☠️</span>
+        <span>C3 — Control Centre</span>
+      </div>
+    </div>
+
+    <nav class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">☠️</div>
+        <div class="logo-text">C3</div>
+      </div>
+      <div class="sidebar-nav">
+        <button class="nav-btn active" data-view="office" title="Hacker House">
+          <span class="nav-icon">🏠</span><span class="nav-label">Office</span>
+        </button>
+        <button class="nav-btn" data-view="dashboard" title="Dashboard">
+          <span class="nav-icon">📊</span><span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-btn" data-view="orgchart" title="Org Chart">
+          <span class="nav-icon">🏛️</span><span class="nav-label">Org Chart</span>
+        </button>
+        <button class="nav-btn" data-view="workspace" title="Workspaces">
+          <span class="nav-icon">📁</span><span class="nav-label">Agents</span>
+        </button>
+        <button class="nav-btn" data-view="standup" title="Standup">
+          <span class="nav-icon">🎙️</span><span class="nav-label">Standup</span>
+        </button>
+        <button class="nav-btn" data-view="comms" title="Comm Feed">
+          <span class="nav-icon">💬</span><span class="nav-label">Comms</span>
+        </button>
+        <button class="nav-btn" data-view="terminal" title="Terminal">
+          <span class="nav-icon">⌨️</span><span class="nav-label">Terminal</span>
+        </button>
+        <button class="nav-btn" data-view="call" title="Voice Call">
+          <span class="nav-icon">📞</span><span class="nav-label">Call</span>
+        </button>
+        <button class="nav-btn" data-view="status" title="System Status">
+          <span class="nav-icon">⚡</span><span class="nav-label">Status</span>
+        </button>
+      </div>
+      <div class="sidebar-footer">
+        <div class="gateway-indicator">
+          <span class="indicator-dot"></span>
+          <span class="indicator-text">Gateway</span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div id="view-office" class="view active"></div>
+      <div id="view-dashboard" class="view"></div>
+      <div id="view-orgchart" class="view"></div>
+      <div id="view-workspace" class="view"></div>
+      <div id="view-standup" class="view"></div>
+      <div id="view-comms" class="view"></div>
+      <div id="view-terminal" class="view"></div>
+      <div id="view-call" class="view"></div>
+      <div id="view-status" class="view"></div>
+    </main>
+
+    <div class="scanline-overlay"></div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => { });
+    }
+  </script>
+</body>
+
+</html>

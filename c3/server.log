@@ -1,0 +1,12 @@
+
+> c3-openclaw@2.0.0 dev
+> node server/index.js
+
+📦 SQLite database initialized
+⏰ Scheduler started
+📱 Telegram bot not configured (set TELEGRAM_BOT_TOKEN)
+
+🚀 C3 OpenClaw running on http://localhost:3000
+📊 Dashboard: http://localhost:3000
+🤖 19 agents ready
+
